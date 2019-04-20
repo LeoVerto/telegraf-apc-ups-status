@@ -2,14 +2,14 @@
 This is a port of this PHP script by Walter Nasich: https://bitbucket.org/snippets/wnasich/7Kg89/
 
 ## Usage
-Create `/usr/local/bin/apc_collector.sh` with the following content:
+Create `/usr/local/sbin/apc_collector.sh` with the following content:
  
     #!/bin/bash
-    apcaccess | python /path/to/apc2telegraf.py
+    apcaccess | python3 /path/to/apc2telegraf.py
 
 Make it executable:
     
-    $ chmod a+x /usr/local/bin/apc_collector.sh
+    $ chmod a+x /usr/local/sbin/apc_collector.sh
  
 Edit your telegraf.conf, add an 'exec' input:
 

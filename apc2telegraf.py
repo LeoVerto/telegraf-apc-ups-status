@@ -40,7 +40,7 @@ for line in sys.stdin:
 
     if key == "DATE":
         time = datetime.strptime(value, "%Y-%m-%d %H:%M:%S %z")
-        timestamp = time.timestamp()
+        timestamp = int(time.timestamp())
         continue
 
     if key in tags_map:
@@ -69,7 +69,7 @@ if timestamp:
     for k, v in influx_fields.items():
         line_protocol_fields.append(k + "=" + v)
 
-    print("ups_apc,{} {} {}".format(
+    print("ups_apc,{} {} {}000000000".format(
           ",".join(line_protocol_tags),
           ",".join(line_protocol_fields),
           timestamp)
